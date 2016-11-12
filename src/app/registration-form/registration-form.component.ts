@@ -30,4 +30,13 @@ export class RegistrationFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit({value, valid}) {
+    console.log('value is', value);
+    console.log('valid', valid);
+
+    if(valid) {
+      this.formData = value;
+    }
+  }
+
 }

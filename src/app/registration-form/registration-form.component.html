@@ -1,5 +1,5 @@
  <div class="row">
-    <form class="col s12" novalidate #regForm="ngForm">
+    <form class="col s12" novalidate #regForm="ngForm"  (ngSubmit)="onSubmit(regForm)">
       <div class="row">
         <div class="input-field col s6">
           <input placeholder="Nombre" id="first_name" type="text" class="validate" name="name" ngModel>
@@ -53,6 +53,10 @@
             <input placeholder="C.P." id="zip" type="number" class="validate" name="zip" ngModel>
           </div>
         </div>
+      </div>
+
+      <div>
+        <button class="btn waves-effect waves-light btn-large" type="submit" name="action" [disabled]="regForm.invalid">Enviar</button>
       </div>
     </form>
 

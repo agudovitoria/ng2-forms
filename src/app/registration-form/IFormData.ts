@@ -10,6 +10,6 @@ export interface IFormData {
         addressLine2: string,
         city: string,
         province: string,
-        zip: number
+        zip: string
     }
 }

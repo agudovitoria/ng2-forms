@@ -1,56 +1,56 @@
  <div class="row">
-    <form class="col s12" novalidate #regForm="ngForm"  (ngSubmit)="onSubmit(regForm)">
+    <form class="col s12" #regForm="ngForm" novalidate (ngSubmit)="onSubmit(regForm)">
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Nombre" id="first_name" type="text" class="validate" name="name" ngModel>
+          <input placeholder="Nombre" id="first_name" type="text" [ngClass]="{'invalid':isInvalid(firstName)}" name="name" ngModel #firstName="ngModel" required>
         </div>
         <div class="input-field col s6">
-          <input placeholder="Apellidos" id="last_name" type="text" class="validate" name="lastName" ngModel>
+          <input placeholder="Apellidos" id="last_name" type="text" [ngClass]="{'invalid':isInvalid(lastName)}" name="lastName" ngModel #lastName="ngModel" required>
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Correo electrónico" id="email" type="email" class="validate" name="email" ngModel>
+          <input placeholder="Correo electrónico" id="email" type="email" [ngClass]="{'invalid':isInvalid(email)}" name="email" ngModel #email="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
         </div>
         <div class="input-field col s6">
-          <input placeholder="Teléfono" id="phone" type="tel" class="validate" name="phone" ngModel>
+          <input placeholder="Teléfono" id="phone" type="tel" [ngClass]="{'invalid':isInvalid(phone)}" name="phone" ngModel #phone="ngModel" required>
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s4">
-          <input placeholder="Fecha Nacimiento" id="dob" type="date" class="validate" name="dob" ngModel>
+          <input placeholder="Fecha Nacimiento" id="dob" type="date" [ngClass]="{'invalid':isInvalid(dob)}" name="dob" ngModel #dob="ngModel" required>
         </div>
         <div class="input-field col s4">
-          <span>Género: </span>
-          <input name="gender" type="radio" value="male" id="gender-male" ngModel /> <label for="gender-male">Masculino</label>
-          <input name="gender" type="radio" value="female" id="gender-female" ngModel /> <label for="gender-female">Femenino</label>
+          <span [ngClass]="{'invalid':isInvalid(gender)}" >Género: </span>
+          <input name="gender" type="radio" value="male" id="gender-male" ngModel required #gender="ngModel" /> <label for="gender-male">Masculino</label>
+          <input name="gender" type="radio" value="female" id="gender-female" ngModel required /> <label for="gender-female">Femenino</label>
         </div>
       </div>
 
       <div ngModelGroup="address">
         <div class="row">
           <div class="input-field col s12">
-            <input placeholder="Línea 1 dirección" id="address_1" type="text" class="validate" name="addressLine1" ngModel>
+            <input placeholder="Línea 1 dirección" id="address_1" type="text" [ngClass]="{'invalid':isInvalid(addressLine1)}" name="addressLine1" ngModel required #addressLine1="ngModel">
           </div>
         </div>
 
         <div class="row">
           <div class="input-field col s12">
-            <input placeholder="Línea 2 dirección" id="address_2" type="text" class="validate" name="addressLine2" ngModel>
+            <input placeholder="Línea 2 dirección" id="address_2" type="text" [ngClass]="{'invalid':isInvalid(addressLine2)}" name="addressLine2" ngModel #addressLine2="ngModel">
           </div>
         </div>
 
         <div class="row">
           <div class="input-field col s5">
-            <input placeholder="Ciudad" id="city" type="text" class="validate" name="city" ngModel>
+            <input placeholder="Ciudad" id="city" type="text" [ngClass]="{'invalid':isInvalid(city)}" name="city" ngModel #city="ngModel" required>
           </div>
           <div class="input-field col s5">
-            <input placeholder="Provincia/Región" id="province" type="text" class="validate" name="province" ngModel>
+            <input placeholder="Provincia/Región" id="province" type="text" [ngClass]="{'invalid':isInvalid(province)}" name="province" ngModel #province="ngModel" required>
           </div>
           <div class="input-field col s2">
-            <input placeholder="C.P." id="zip" type="number" class="validate" name="zip" ngModel>
+            <input placeholder="C.P." id="zip" type="text" [ngClass]="{'invalid':isInvalid(zip)}" name="zip" ngModel #zip="ngModel" required maxlength="5" minlength="5">
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgModel } from '@angular/forms';
 import { IFormData } from './IFormData';
 
 @Component({
@@ -36,7 +37,12 @@ export class RegistrationFormComponent implements OnInit {
 
     if(valid) {
       this.formData = value;
+      alert("FORM DATA READY TO SEND")
     }
+  }
+
+  isInvalid(model:NgModel) {
+    return model.invalid && model.touched;
   }
 
 }

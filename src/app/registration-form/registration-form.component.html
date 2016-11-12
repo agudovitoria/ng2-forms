@@ -11,7 +11,7 @@
 
       <div class="row">
         <div class="input-field col s4">
-          <input placeholder="Correo electrónico" id="email" type="email" [ngClass]="{'invalid':isInvalid(email)}" name="email" ngModel #email="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+          <input placeholder="Correo electrónico" id="email" type="email" [ngClass]="{'invalid':isInvalid(email)}" name="email" ngModel #email="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" sameAs="email2" reverse="true">
         </div>
         <div class="input-field col s4">
           <input placeholder="Confirmar correo electrónico" id="email2" type="email" [ngClass]="{'invalid':isInvalid(email2)}" name="email2" ngModel #email2="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" sameAs="email">

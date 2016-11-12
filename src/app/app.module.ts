@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { SameAsValidator } from './registration-form/same-as.validator';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistrationFormComponent
+    RegistrationFormComponent,
+    SameAsValidator
   ],
   imports: [
     BrowserModule,

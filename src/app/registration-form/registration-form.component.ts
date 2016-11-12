@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IFormData } from './FormData';
+import { IFormData } from './IFormData';
 
 @Component({
   selector: 'app-registration-form',

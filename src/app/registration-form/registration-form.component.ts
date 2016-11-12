@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IFormData } from './FormData';
 
 @Component({
   selector: 'app-registration-form',
@@ -6,8 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registration-form.component.css']
 })
 export class RegistrationFormComponent implements OnInit {
+  formData:IFormData = {
+    name: '',
+    lastName: '',
+    gender: null,
+    dob: null,
+    phone: null,
+    address: {
+        addressLine1: '',
+        addressLine2: '',
+        city: '',
+        province: '',
+        zip: null
+    }
+  };
 
-  constructor() { }
+  constructor() { 
+
+  }
 
   ngOnInit() {
   }

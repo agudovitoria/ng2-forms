@@ -1,7 +1,8 @@
 export interface IFormData {
     name: string,
     lastName: string,
-    gender: number,
+    email:string,
+    gender: string,
     dob: Date,
     phone: number,
     address: {

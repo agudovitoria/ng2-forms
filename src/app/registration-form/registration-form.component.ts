@@ -10,6 +10,7 @@ export class RegistrationFormComponent implements OnInit {
   formData:IFormData = {
     name: '',
     lastName: '',
+    email: '',
     gender: null,
     dob: null,
     phone: null,

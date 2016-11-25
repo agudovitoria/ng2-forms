@@ -2,10 +2,10 @@
     <form class="col s12" #regForm="ngForm" novalidate (ngSubmit)="onSubmit(regForm)">
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Nombre" id="first_name" type="text" [ngClass]="{'invalid':isInvalid(firstName)}" name="name" ngModel #firstName="ngModel" required>
+          <input placeholder="Nombre" id="first_name" type="text" [ngClass]="{'invalid':isInvalid(firstName)}" name="name" [ngModel]="formData.name" #firstName="ngModel" required>
         </div>
         <div class="input-field col s6">
-          <input placeholder="Apellidos" id="last_name" type="text" [ngClass]="{'invalid':isInvalid(lastName)}" name="lastName" ngModel #lastName="ngModel" required>
+          <input placeholder="Apellidos" id="last_name" type="text" [ngClass]="{'invalid':isInvalid(lastName)}" name="lastName" [ngModel]="formData.lastName" #lastName="ngModel" required>
         </div>
       </div>
 

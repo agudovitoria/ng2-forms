@@ -9,7 +9,7 @@ import { IFormData } from './IFormData';
 })
 export class RegistrationFormComponent implements OnInit {
   formData:IFormData = {
-    name: '',
+    name: 'Alex',
     lastName: '',
     email: '',
     gender: null,

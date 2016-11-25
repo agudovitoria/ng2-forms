@@ -1,57 +1,65 @@
  <div class="row">
-    <form class="col s12">
+    <form class="col s12" [formGroup]="formData" (ngSubmit)="onSubmit(formData)">
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Nombre" id="first_name" type="text" class="validate">
+          <input placeholder="Nombre" id="first_name" type="text" class="validate" formControlName="name">
         </div>
         <div class="input-field col s6">
-          <input placeholder="Apellidos" id="last_name" type="text" class="validate">
+          <input placeholder="Apellidos" id="last_name" type="text" class="validate" formControlName="lastName">
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Correo electrónico" id="email" type="email" class="validate">
+          <input placeholder="Correo electrónico" id="email" type="email" class="validate" formControlName="email">
         </div>
         <div class="input-field col s6">
-          <input placeholder="Teléfono" id="phone" type="tel" class="validate">
+          <input placeholder="Teléfono" id="phone" type="tel" class="validate" formControlName="phone">
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s4">
-          <input placeholder="Fecha Nacimiento" id="dob" type="tel" class="validate">
+          <input placeholder="Fecha Nacimiento" id="dob" type="tel" class="validate" formControlName="dob">
         </div>
         <div class="input-field col s4">
           <span>Género: </span>
-          <input name="gender" type="radio" id="masc" /> <label for="test1">Masculino</label>
-          <input name="gender" type="radio" id="fem" /> <label for="test2">Femenino</label>
+          <input name="gender" type="radio" id="masc" formControlName="gender" /> <label for="test1">Masculino</label>
+          <input name="gender" type="radio" id="fem" formControlName="gender" /> <label for="test2">Femenino</label>
         </div>
       </div>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <input placeholder="Línea 1 dirección" id="address_1" type="text" class="validate">
+      <div formGroupName="address">
+        <div class="row">
+          <div class="input-field col s12">
+            <input placeholder="Línea 1 dirección" id="address_1" type="text" class="validate" formControlName="addressLine1">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input placeholder="Línea 2 dirección" id="address_2" type="text" class="validate" formControlName="addressLine2">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s5">
+            <input placeholder="Ciudad" id="city" type="text" class="validate" formControlName="city">
+          </div>
+          <div class="input-field col s5">
+            <input placeholder="Provincia/Región" id="province" type="text" class="validate" formControlName="province">
+          </div>
+          <div class="input-field col s2">
+            <input placeholder="C.P." id="zip" type="text" class="validate" formControlName="zip">
+          </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <input placeholder="Línea 2 dirección" id="address_2" type="text" class="validate">
-        </div>
+      <div>
+        <button class="btn waves-effect waves-light btn-large" type="submit" name="action" [disabled]="formData.invalid">Enviar</button>
       </div>
-
-      <div class="row">
-        <div class="input-field col s5">
-          <input placeholder="Ciudad" id="city" type="text" class="validate">
-        </div>
-        <div class="input-field col s5">
-          <input placeholder="Provincia/Región" id="province" type="text" class="validate">
-        </div>
-        <div class="input-field col s2">
-          <input placeholder="C.P." id="zip" type="number" class="validate">
-        </div>
-      </div>
+      
+      {{ formData?.value | json }}
 
     </form>
   </div>

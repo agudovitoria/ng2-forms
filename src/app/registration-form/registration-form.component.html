@@ -2,25 +2,28 @@
     <form class="col s12" [formGroup]="formData" (ngSubmit)="onSubmit(formData)">
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Nombre" id="first_name" type="text" class="validate" formControlName="name">
+          <input placeholder="Nombre" id="first_name" type="text" class="validate" formControlName="name" [ngClass]="{'invalid':isInvalid('name')}">
         </div>
         <div class="input-field col s6">
-          <input placeholder="Apellidos" id="last_name" type="text" class="validate" formControlName="lastName">
+          <input placeholder="Apellidos" id="last_name" type="text" class="validate" formControlName="lastName" [ngClass]="{'invalid':isInvalid('lastName')}">
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Correo electrónico" id="email" type="email" class="validate" formControlName="email">
+          <input placeholder="Correo electrónico" id="email" type="email" class="validate" formControlName="email" [ngClass]="{'invalid':isInvalid('email')}">
         </div>
         <div class="input-field col s6">
-          <input placeholder="Teléfono" id="phone" type="tel" class="validate" formControlName="phone">
+          <input placeholder="Confirmar correo electrónico" id="email2" type="email" class="validate" formControlName="email2" [ngClass]="{'invalid':isInvalid('email2')}">
+        </div>
+        <div class="input-field col s6">
+          <input placeholder="Teléfono" id="phone" type="tel" class="validate" formControlName="phone" [ngClass]="{'invalid':isInvalid('phone')}">
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s4">
-          <input placeholder="Fecha Nacimiento" id="dob" type="tel" class="validate" formControlName="dob">
+          <input placeholder="Fecha Nacimiento" id="dob" type="tel" class="validate" formControlName="dob" [ngClass]="{'invalid':isInvalid('dob')}">
         </div>
         <div class="input-field col s4">
           <span>Género: </span>
@@ -32,25 +35,25 @@
       <div formGroupName="address">
         <div class="row">
           <div class="input-field col s12">
-            <input placeholder="Línea 1 dirección" id="address_1" type="text" class="validate" formControlName="addressLine1">
+            <input placeholder="Línea 1 dirección" id="address_1" type="text" class="validate" formControlName="addressLine1" [ngClass]="{'invalid':isInvalid('address.addressLine1')}">
           </div>
         </div>
 
         <div class="row">
           <div class="input-field col s12">
-            <input placeholder="Línea 2 dirección" id="address_2" type="text" class="validate" formControlName="addressLine2">
+            <input placeholder="Línea 2 dirección" id="address_2" type="text" class="validate" formControlName="addressLine2" [ngClass]="{'invalid':isInvalid('address.addressLine2')}">
           </div>
         </div>
 
         <div class="row">
           <div class="input-field col s5">
-            <input placeholder="Ciudad" id="city" type="text" class="validate" formControlName="city">
+            <input placeholder="Ciudad" id="city" type="text" class="validate" formControlName="city" [ngClass]="{'invalid':isInvalid('address.city')}">
           </div>
           <div class="input-field col s5">
-            <input placeholder="Provincia/Región" id="province" type="text" class="validate" formControlName="province">
+            <input placeholder="Provincia/Región" id="province" type="text" class="validate" formControlName="province" [ngClass]="{'invalid':isInvalid('address.province')}">
           </div>
           <div class="input-field col s2">
-            <input placeholder="C.P." id="zip" type="text" class="validate" formControlName="zip">
+            <input placeholder="C.P." id="zip" type="text" class="validate" formControlName="zip" [ngClass]="{'invalid':isInvalid('address.zip')}">
           </div>
         </div>
       </div>

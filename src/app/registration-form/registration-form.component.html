@@ -1,57 +1,84 @@
  <div class="row">
-    <form class="col s12">
+    <form class="col s12" #regForm="ngForm" (ngSubmit)="onSubmit(regForm)" novalidate>
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Nombre" id="first_name" type="text" class="validate">
+          <input placeholder="Nombre"
+                 id="first_name"
+                 type="text"
+                 class="validate"
+                 name="name"
+                 ngModel
+                 required
+                 #name="ngModel"
+                 [ngClass]="{ 'invalid' : isInvalid(name)}">
         </div>
         <div class="input-field col s6">
-          <input placeholder="Apellidos" id="last_name" type="text" class="validate">
+          <input id="last_name"
+                 placeholder="Apellidos"
+                 type="text"
+                 class="validate"
+                 name="lastName"
+                 ngModel
+                 required
+                 #lastName="ngModel"
+                 [ngClass]="{ 'invalid' : isInvalid(lastName)}">
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Correo electrónico" id="email" type="email" class="validate">
+          <input placeholder="Correo electrónico" id="email" type="email" class="validate" name="email" ngModel required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #email="ngModel" [ngClass]="{ 'invalid' : isInvalid(email)}">
         </div>
         <div class="input-field col s6">
-          <input placeholder="Teléfono" id="phone" type="tel" class="validate">
+          <input placeholder="Teléfono" id="phone" type="tel" class="validate" name="phone" ngModel required #addressLine1="ngModel" [ngClass]="{ 'invalid' : isInvalid(addressLine1)}">
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s4">
-          <input placeholder="Fecha Nacimiento" id="dob" type="tel" class="validate">
+          <input placeholder="Fecha Nacimiento" id="dob" type="tel" class="validate" name="dob" ngModel>
         </div>
         <div class="input-field col s4">
           <span>Género: </span>
-          <input name="gender" type="radio" id="masc" /> <label for="test1">Masculino</label>
-          <input name="gender" type="radio" id="fem" /> <label for="test2">Femenino</label>
+          <input name="gender" type="radio" id="masc" value="1" ngModel/> <label for="masc">Masculino</label>
+          <input name="gender" type="radio" id="fem"  value="2" ngModel/> <label for="fem">Femenino</label>
         </div>
       </div>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <input placeholder="Línea 1 dirección" id="address_1" type="text" class="validate">
+      <div ngModelGroupe="address">
+        <div class="row">
+          <div class="input-field col s12">
+            <input placeholder="Línea 1 dirección" id="address_1" type="text" class="validate" name="addressLine1" ngModel required #addressLine1="ngModel" [ngClass]="{ 'invalid' : isInvalid(addressLine1)}">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input placeholder="Línea 2 dirección" id="address_2" type="text" class="validate" name="addressLine2" ngModel>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s5">
+            <input placeholder="Ciudad" id="city" type="text" class="validate" name="city" ngModel>
+          </div>
+          <div class="input-field col s5">
+            <input placeholder="Provincia/Región" id="province" type="text" class="validate" name="province" ngModel>
+          </div>
+          <div class="input-field col s2">
+            <input placeholder="C.P." id="zip" type="number" class="validate" name="zip" ngModel>
+          </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <input placeholder="Línea 2 dirección" id="address_2" type="text" class="validate">
-        </div>
+      <div>
+        <button class="btn waves-effect waves-light btn-large" type="submit">REGISTRARSE</button>
       </div>
-
-      <div class="row">
-        <div class="input-field col s5">
-          <input placeholder="Ciudad" id="city" type="text" class="validate">
-        </div>
-        <div class="input-field col s5">
-          <input placeholder="Provincia/Región" id="province" type="text" class="validate">
-        </div>
-        <div class="input-field col s2">
-          <input placeholder="C.P." id="zip" type="number" class="validate">
-        </div>
-      </div>
-
     </form>
+
+   <div class="row">
+     <div class="col s12">
+       <pre>{{ regForm.value | json }}</pre>
+     </div>
+   </div>
   </div>
